@@ -1,0 +1,482 @@
+/* ============================================
+   LANDING PAGE - EVENTOS ELAS / GARTEN FASHION TRENDS
+   Almeida Junior Shoppings
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #6B1D35;
+    --primary-dark: #4a1425;
+    --primary-light: #8c2848;
+    --accent: #c9a96e;
+    --bg: #1a1118;
+    --bg-card: rgba(107, 29, 53, 0.12);
+    --card-border: rgba(201, 169, 110, 0.2);
+    --text: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.65);
+    --input-bg: rgba(255, 255, 255, 0.07);
+    --input-border: rgba(201, 169, 110, 0.25);
+    --input-focus: var(--accent);
+    --success: #27ae60;
+    --error: #e74c3c;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Tema BS - Borgonha / Crimson */
+.theme-bs {
+    --primary: #6B1D35;
+    --primary-dark: #4a1425;
+    --primary-light: #8c2848;
+    --accent: #c9a96e;
+    --bg: #1a1118;
+    --bg-card: rgba(107, 29, 53, 0.15);
+    --card-border: rgba(201, 169, 110, 0.2);
+}
+
+/* Tema NK - Borgonha (mesmo branding Elas) */
+.theme-nk {
+    --primary: #6B1D35;
+    --primary-dark: #4a1425;
+    --primary-light: #8c2848;
+    --accent: #c9a96e;
+    --bg: #1a1118;
+    --bg-card: rgba(107, 29, 53, 0.15);
+    --card-border: rgba(201, 169, 110, 0.2);
+}
+
+/* Tema GS - Preto e Branco, high fashion */
+.theme-gs {
+    --primary: #111111;
+    --primary-dark: #000000;
+    --primary-light: #333333;
+    --accent: #ffffff;
+    --bg: #0a0a0a;
+    --bg-card: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.15);
+    --input-border: rgba(255, 255, 255, 0.2);
+    --input-focus: #ffffff;
+}
+
+.theme-gs .header h1 {
+    background: none;
+    -webkit-text-fill-color: #ffffff;
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-size: 22px;
+}
+
+.theme-gs .promo-banner {
+    background: #ffffff;
+    color: #111111;
+}
+
+.theme-gs .promo-banner p {
+    color: #111111;
+}
+
+.theme-gs .promo-banner strong {
+    color: #111111;
+}
+
+.theme-gs .btn-submit {
+    background: #ffffff;
+    color: #111111;
+}
+
+.theme-gs .btn-submit:hover {
+    background: #f0f0f0;
+}
+
+.theme-gs .radio-option input[type="radio"]:checked + label {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.theme-gs .event-info {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-gs .event-info strong {
+    color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px 20px 40px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.header .kv-banner {
+    width: 100%;
+    max-width: 440px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+.header h1 {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
+    background: linear-gradient(135deg, var(--primary-light), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header .subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.header .event-info {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid var(--card-border);
+    border-radius: 100px;
+    padding: 8px 20px;
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.header .event-info strong {
+    color: var(--accent);
+}
+
+/* Promo banner */
+.promo-banner {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 12px;
+    padding: 14px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid rgba(201, 169, 110, 0.15);
+}
+
+.promo-banner p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.promo-banner strong {
+    color: var(--accent);
+}
+
+/* Form */
+.form-card {
+    background: var(--bg-card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    flex: 1;
+}
+
+.form-card h2 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--accent);
+}
+
+.theme-gs .form-card h2 {
+    font-family: var(--font-body);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.form-group label .required {
+    color: var(--primary-light);
+}
+
+.theme-gs .form-group label .required {
+    color: #888;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: var(--input-focus);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+/* Radio groups */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.radio-group.vertical {
+    flex-direction: column;
+}
+
+.radio-option {
+    position: relative;
+}
+
+.radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio-option label {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text);
+    transition: all 0.2s;
+    margin-bottom: 0;
+}
+
+.radio-option input[type="radio"]:checked + label {
+    background: rgba(201, 169, 110, 0.15);
+    border-color: var(--accent);
+}
+
+.radio-option label:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.radio-group.inline {
+    flex-direction: row;
+}
+
+.radio-group.inline .radio-option {
+    flex: 1;
+}
+
+.radio-group.inline .radio-option label {
+    justify-content: center;
+}
+
+/* Submit */
+.btn-submit {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: 1px solid rgba(201, 169, 110, 0.3);
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.btn-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-submit.loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn-submit.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 22px;
+    height: 22px;
+    margin: -11px 0 0 -11px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Validation */
+.form-group.error input,
+.form-group.error .radio-option label {
+    border-color: var(--error) !important;
+}
+
+.form-group .error-msg {
+    font-size: 12px;
+    color: var(--error);
+    margin-top: 4px;
+    display: none;
+}
+
+.form-group.error .error-msg {
+    display: block;
+}
+
+/* Success */
+.success-screen {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.success-screen.active {
+    display: flex;
+}
+
+.success-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 36px;
+    color: white;
+}
+
+.success-screen h2 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: var(--accent);
+}
+
+.theme-gs .success-screen h2 {
+    font-family: var(--font-body);
+    color: #ffffff;
+}
+
+.success-screen p {
+    color: var(--text-muted);
+    font-size: 15px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px 0 0;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.25);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 380px) {
+    .container {
+        padding: 14px 14px 32px;
+    }
+    .form-card {
+        padding: 20px 14px;
+    }
+    .header h1 {
+        font-size: 40px;
+    }
+}
+
+.form-card.hidden {
+    display: none;
+}
+
+.promo-banner.hidden {
+    display: none;
+}

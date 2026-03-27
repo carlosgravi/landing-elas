@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Garten Fashion Trends | Garten Shopping</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="theme-color" content="#0a0a0a">
+</head>
+<body class="theme-gs">
+
+<div class="container">
+    <header class="header">
+        <img src="img/gs_feed2.png" alt="Garten Fashion Trends" class="kv-banner">
+    </header>
+
+    <div class="promo-banner">
+        <p>Preencha seus dados e <strong>concorra a um gift card exclusivo!</strong></p>
+    </div>
+
+    <div class="form-card">
+        <h2>Cadastre-se</h2>
+
+        <form id="leadForm" data-shopping="Garten Shopping" data-evento="Garten Fashion Trends - 08 e 09/04">
+
+            <div class="form-group">
+                <label>Nome completo <span class="required">*</span></label>
+                <input type="text" id="nome" placeholder="Seu nome" autocomplete="name" required>
+                <span class="error-msg">Informe seu nome completo</span>
+            </div>
+
+            <div class="form-group">
+                <label>Telefone <span class="required">*</span></label>
+                <input type="tel" id="telefone" placeholder="(00) 00000-0000" autocomplete="tel" required>
+                <span class="error-msg">Informe um telefone valido</span>
+            </div>
+
+            <div class="form-group">
+                <label>E-mail <span class="required">*</span></label>
+                <input type="email" id="email" placeholder="seu@email.com" autocomplete="email" required>
+                <span class="error-msg">Informe um e-mail valido</span>
+            </div>
+
+            <div class="form-group">
+                <label>Voce ja e lojista? <span class="required">*</span></label>
+                <div class="radio-group inline">
+                    <div class="radio-option">
+                        <input type="radio" name="lojista" id="lojista_sim" value="Sim">
+                        <label for="lojista_sim">Sim</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="lojista" id="lojista_nao" value="Nao">
+                        <label for="lojista_nao">Nao</label>
+                    </div>
+                </div>
+                <span class="error-msg">Selecione uma opcao</span>
+            </div>
+
+            <div class="form-group">
+                <label>Voce ja tem loja fisica, online ou ambos? <span class="required">*</span></label>
+                <div class="radio-group vertical">
+                    <div class="radio-option">
+                        <input type="radio" name="loja_tipo" id="loja_fisica" value="Fisica">
+                        <label for="loja_fisica">Loja fisica</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="loja_tipo" id="loja_online" value="Online">
+                        <label for="loja_online">Loja online</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="loja_tipo" id="loja_ambos" value="Ambos">
+                        <label for="loja_ambos">Ambos</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="loja_tipo" id="loja_nao" value="Nao tenho">
+                        <label for="loja_nao">Nao tenho</label>
+                    </div>
+                </div>
+                <span class="error-msg">Selecione uma opcao</span>
+            </div>
+
+            <div class="form-group">
+                <label>Em quanto tempo pretende investir? <span class="required">*</span></label>
+                <div class="radio-group vertical">
+                    <div class="radio-option">
+                        <input type="radio" name="tempo_investimento" id="tempo_6m" value="Ate 6 meses">
+                        <label for="tempo_6m">Ate 6 meses</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="tempo_investimento" id="tempo_12m" value="6 a 12 meses">
+                        <label for="tempo_12m">6 a 12 meses</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="tempo_investimento" id="tempo_1a" value="Mais de 1 ano">
+                        <label for="tempo_1a">Mais de 1 ano</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="tempo_investimento" id="tempo_pesq" value="So pesquisando">
+                        <label for="tempo_pesq">So pesquisando</label>
+                    </div>
+                </div>
+                <span class="error-msg">Selecione uma opcao</span>
+            </div>
+
+            <div class="form-group">
+                <label>Faixa de investimento pretendida <span class="required">*</span></label>
+                <div class="radio-group vertical">
+                    <div class="radio-option">
+                        <input type="radio" name="faixa_investimento" id="faixa_50" value="Ate R$50 mil">
+                        <label for="faixa_50">Ate R$ 50 mil</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="faixa_investimento" id="faixa_150" value="R$50k a R$150k">
+                        <label for="faixa_150">R$ 50k - R$ 150k</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="faixa_investimento" id="faixa_300" value="R$150k a R$300k">
+                        <label for="faixa_300">R$ 150k - R$ 300k</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="faixa_investimento" id="faixa_mais" value="Acima de R$300k">
+                        <label for="faixa_mais">Acima de R$ 300k</label>
+                    </div>
+                </div>
+                <span class="error-msg">Selecione uma opcao</span>
+            </div>
+
+            <button type="submit" class="btn-submit">Enviar e concorrer ao gift card</button>
+        </form>
+    </div>
+
+    <div class="success-screen">
+        <div class="success-icon">&#10003;</div>
+        <h2>Cadastro realizado!</h2>
+        <p>Seus dados foram registrados com sucesso. Boa sorte no sorteio do gift card!</p>
+    </div>
+
+    <footer class="footer">
+        Garten Shopping &bull; Almeida Junior
+    </footer>
+</div>
+
+<script src="js/form.js"></script>
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Elas | Balneario Shopping</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#110a0e">
+    <style>
+        :root {
+            --burgundy: #6B1D35;
+            --burgundy-deep: #3d1020;
+            --gold: #c9a96e;
+            --gold-light: #dfc48f;
+            --gold-soft: rgba(201, 169, 110, 0.12);
+            --bg: #110a0e;
+            --text: #f5f0eb;
+            --text-muted: rgba(245, 240, 235, 0.55);
+            --glass: rgba(107, 29, 53, 0.08);
+            --glass-border: rgba(201, 169, 110, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Textura sutil de fundo */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(107, 29, 53, 0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 100%, rgba(201, 169, 110, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 460px;
+            margin: 0 auto;
+            padding: 0 20px 48px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ---- HEADER / KV ---- */
+        .header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .kv-banner {
+            width: calc(100% + 40px);
+            margin-left: -20px;
+            margin-top: 0;
+            display: block;
+            border-radius: 0 0 16px 16px;
+        }
+
+        /* ---- SEPARADOR DOURADO ---- */
+        .gold-divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto 24px;
+        }
+
+        /* ---- PROMO ---- */
+        .promo-banner {
+            text-align: center;
+            margin-bottom: 28px;
+            padding: 0 8px;
+        }
+
+        .promo-banner p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .promo-banner strong {
+            color: var(--gold-light);
+            font-weight: 400;
+        }
+
+        /* ---- FORM CARD ---- */
+        .form-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 32px 24px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            flex: 1;
+        }
+
+        .form-card h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 300;
+            text-align: center;
+            color: var(--gold-light);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .form-card h2::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 12px auto 0;
+            opacity: 0.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group > label {
+            display: block;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--gold);
+            margin-bottom: 8px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .form-group > label .required {
+            color: var(--burgundy);
+            opacity: 0.7;
+        }
+
+        /* Inputs */
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"] {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(201, 169, 110, 0.18);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            outline: none;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group input:focus {
+            border-color: var(--gold);
+            background: rgba(201, 169, 110, 0.06);
+            box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.08);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(245, 240, 235, 0.2);
+            font-weight: 300;
+        }
+
+        /* Radios */
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .radio-group.vertical { flex-direction: column; }
+        .radio-group.inline { flex-direction: row; }
+        .radio-group.inline .radio-option { flex: 1; }
+        .radio-group.inline .radio-option label { justify-content: center; }
+
+        .radio-option {
+            position: relative;
+        }
+
+        .radio-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0; height: 0;
+        }
+
+        .radio-option label {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(201, 169, 110, 0.12);
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--text);
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+        }
+
+        .radio-option input[type="radio"]:checked + label {
+            background: var(--gold-soft);
+            border-color: var(--gold);
+            color: var(--gold-light);
+            font-weight: 400;
+        }
+
+        .radio-option label:hover {
+            background: rgba(201, 169, 110, 0.06);
+            border-color: rgba(201, 169, 110, 0.25);
+        }
+
+        /* Submit */
+        .btn-submit {
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, var(--gold), #b8943e);
+            border: none;
+            border-radius: 10px;
+            color: #1a0e12;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 169, 110, 0.25);
+        }
+
+        .btn-submit:active { transform: translateY(0); }
+
+        .btn-submit:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-submit.loading {
+            position: relative;
+            color: transparent;
+        }
+
+        .btn-submit.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 20px; height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid rgba(26, 14, 18, 0.3);
+            border-top-color: #1a0e12;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Validation */
+        .form-group.error input,
+        .form-group.error .radio-option label {
+            border-color: #c0392b !important;
+        }
+
+        .form-group .error-msg {
+            font-size: 11px;
+            color: #e07a6e;
+            margin-top: 6px;
+            display: none;
+            font-weight: 400;
+        }
+
+        .form-group.error .error-msg { display: block; }
+
+        /* Success */
+        .success-screen {
+            display: none;
+            text-align: center;
+            padding: 80px 20px;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .success-screen.active { display: flex; }
+
+        .success-icon {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), #b8943e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+            color: #1a0e12;
+            box-shadow: 0 8px 40px rgba(201, 169, 110, 0.2);
+        }
+
+        .success-screen h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--gold-light);
+            margin-bottom: 12px;
+        }
+
+        .success-screen p {
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 300;
+            max-width: 280px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 28px 0 0;
+            font-size: 10px;
+            color: rgba(201, 169, 110, 0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .form-card.hidden { display: none; }
+        .promo-banner.hidden { display: none; }
+        .gold-divider.hidden { display: none; }
+
+        @media (max-width: 380px) {
+            .container { padding: 0 14px 32px; }
+            .form-card { padding: 24px 16px; }
+            .kv-banner { width: calc(100% + 28px); margin-left: -14px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <img src="img/bs_convite.png" alt="Elas - Balneario Shopping" class="kv-banner">
+    </header>
+
+    <div class="gold-divider"></div>
+
+    <div class="promo-banner">
+        <p>Preencha seus dados e concorra a um <strong>gift card exclusivo</strong></p>
+    </div>
+
+    <div class="form-card">
+        <h2>Cadastre-se</h2>
+
+        <form id="leadForm" data-shopping="Balneario Shopping" data-evento="Elas Talk - 31/03">
+
+            <div class="form-group">
+                <label>Nome completo <span class="required">*</span></label>
+                <input type="text" id="nome" placeholder="Seu nome completo" autocomplete="name" required>
+                <span class="error-msg">Informe seu nome completo</span>
+            </div>
+
+            <div class="form-group">
+                <label>Telefone <span class="required">*</span></label>
+                <input type="tel" id="telefone" placeholder="(00) 00000-0000" autocomplete="tel" required>
+                <span class="error-msg">Informe um telefone valido</span>
+            </div>
+
+            <div class="form-group">
+                <label>E-mail <span class="required">*</span></label>
+                <input type="email" id="email" placeholder="seu@email.com" autocomplete="email" required>
+                <span class="error-msg">Informe um e-mail valido</span>
+            </div>
+
+            <div class="form-group">
+                <label>Voce ja e lojista? <span class="required">*</span></label>
+                <div class="radio-group inline">
+                    <div class="radio-option">
+                        <input type="radio" name="lojista" id="lojista_sim" value="Sim">
+                        <label for="lojista_sim">Sim</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="lojista" id="lojista_nao" value="Nao">
+                        <label for="lojista_nao">Nao</label>
+                    </div>
+                </div>
+                <span class="error-msg">Selecione uma opcao</span>
+            </div>
+
+            <div class="form-group">
+                <label>Voce ja tem loja fisica, online ou ambos? <span class="required">*</span></label>
+                <div class="radio-group vertical">
+                    <div class="radio-option">
+                        <input type="radio" name="loja_tipo" id="loja_fisica" value="Fisica">
+                        <label for="loja_fisica">Loja fisica</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="loja_tipo" id="loja_online" value="Online">
+                        <label for="loja_online">Loja online</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="loja_tipo" id="loja_ambos" value="Ambos">
+                        <label for="loja_ambos">Ambos</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="loja_tipo" id="loja_nao" value="Nao tenho">
+                        <label for="loja_nao">Nao tenho</label>
+                    </div>
+                </div>
+                <span class="error-msg">Selecione uma opcao</span>
+            </div>
+
+            <div class="form-group">
+                <label>Em quanto tempo pretende investir? <span class="required">*</span></label>
+                <div class="radio-group vertical">
+                    <div class="radio-option">
+                        <input type="radio" name="tempo_investimento" id="tempo_6m" value="Ate 6 meses">
+                        <label for="tempo_6m">Ate 6 meses</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="tempo_investimento" id="tempo_12m" value="6 a 12 meses">
+                        <label for="tempo_12m">6 a 12 meses</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="tempo_investimento" id="tempo_1a" value="Mais de 1 ano">
+                        <label for="tempo_1a">Mais de 1 ano</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="tempo_investimento" id="tempo_pesq" value="So pesquisando">
+                        <label for="tempo_pesq">So pesquisando</label>
+                    </div>
+                </div>
+                <span class="error-msg">Selecione uma opcao</span>
+            </div>
+
+            <div class="form-group">
+                <label>Faixa de investimento pretendida <span class="required">*</span></label>
+                <div class="radio-group vertical">
+                    <div class="radio-option">
+                        <input type="radio" name="faixa_investimento" id="faixa_50" value="Ate R$50 mil">
+                        <label for="faixa_50">Ate R$ 50 mil</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="faixa_investimento" id="faixa_150" value="R$50k a R$150k">
+                        <label for="faixa_150">R$ 50k - R$ 150k</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="faixa_investimento" id="faixa_300" value="R$150k a R$300k">
+                        <label for="faixa_300">R$ 150k - R$ 300k</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="faixa_investimento" id="faixa_mais" value="Acima de R$300k">
+                        <label for="faixa_mais">Acima de R$ 300k</label>
+                    </div>
+                </div>
+                <span class="error-msg">Selecione uma opcao</span>
+            </div>
+
+            <button type="submit" class="btn-submit">Participar do sorteio</button>
+        </form>
+    </div>
+
+    <div class="success-screen">
+        <div class="success-icon">&#10003;</div>
+        <h2>Cadastro realizado</h2>
+        <p>Seus dados foram registrados com sucesso. Boa sorte no sorteio do gift card!</p>
+    </div>
+
+    <footer class="footer">
+        Balneario Shopping &bull; Almeida Junior
+    </footer>
+</div>
+
+<script src="js/form.js"></script>
+</body>
+</html>
