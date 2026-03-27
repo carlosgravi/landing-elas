@@ -6,7 +6,7 @@
 // ==============================================================
 // CONFIGURACAO: Substitua pela URL do Google Apps Script
 // ==============================================================
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxqEo3kiV4GUV2t__yub6sQBTLxCO4Tw3h-bbDjinm4xWyxJu8K46Ekqm6PU6Aly3Gj/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby6JRXnixJ0qQ_IupSKWHWYQDT-1RgkIZVxnLluf52mlrA_p6hnwcyLVFs9JUCenPB-/exec';
 // ==============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
