@@ -1,25 +1,12 @@
 /**
- * Google Apps Script - Receber dados da Landing Page Elas
- *
- * SETUP:
- * 1. Crie uma Google Sheet com os headers abaixo na primeira linha
- * 2. Va em Extensoes > Apps Script
- * 3. Cole este codigo
- * 4. Clique em Implantar > Nova implantacao
- * 5. Tipo: App da Web
- * 6. Executar como: Eu
- * 7. Quem tem acesso: Qualquer pessoa
- * 8. Copie a URL gerada e cole no form.js (variavel GOOGLE_SCRIPT_URL)
- *
- * Headers da planilha (linha 1):
- * Data/Hora | Shopping | Evento | Nome | Telefone | Email | Lojista | Tipo Loja | Tempo Investimento | Faixa Investimento
+ * Google Apps Script - Landing Page Elas
+ * Recebe leads (doPost) e serve dados para dashboard (doGet)
  */
 
 function doPost(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var data = JSON.parse(e.postData.contents);
-
     sheet.appendRow([
       data.data_registro || new Date().toLocaleString('pt-BR'),
       data.shopping || '',
@@ -32,11 +19,9 @@ function doPost(e) {
       data.tempo_investimento || '',
       data.faixa_investimento || ''
     ]);
-
     return ContentService
       .createTextOutput(JSON.stringify({ status: 'ok' }))
       .setMimeType(ContentService.MimeType.JSON);
-
   } catch (error) {
     return ContentService
       .createTextOutput(JSON.stringify({ status: 'error', message: error.toString() }))
@@ -45,6 +30,31 @@ function doPost(e) {
 }
 
 function doGet(e) {
+  var action = (e && e.parameter && e.parameter.action) ? e.parameter.action : 'status';
+
+  if (action === 'data') {
+    try {
+      var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+      var data = sheet.getDataRange().getValues();
+      var headers = data[0];
+      var rows = [];
+      for (var i = 1; i < data.length; i++) {
+        var row = {};
+        for (var j = 0; j < headers.length; j++) {
+          row[headers[j]] = data[i][j];
+        }
+        rows.push(row);
+      }
+      return ContentService
+        .createTextOutput(JSON.stringify({ status: 'ok', total: rows.length, leads: rows }))
+        .setMimeType(ContentService.MimeType.JSON);
+    } catch (error) {
+      return ContentService
+        .createTextOutput(JSON.stringify({ status: 'error', message: error.toString() }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+  }
+
   return ContentService
     .createTextOutput('Landing Page Elas - API ativa')
     .setMimeType(ContentService.MimeType.TEXT);
