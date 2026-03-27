@@ -216,7 +216,7 @@ const CORES = {
 };
 
 const CORES_SHOPPING = {
-    'Balneario Shopping': '#6B1D35',
+    'Balneário Shopping': '#6B1D35',
     'Neumarkt Shopping': '#8e44ad',
     'Garten Shopping': '#1abc9c'
 };
@@ -241,8 +241,8 @@ function renderKPIs(leads) {
                 <div class="label">Total de Leads</div>
             </div>
             <div class="kpi">
-                <div class="value">${porShopping['Balneario Shopping'] || 0}</div>
-                <div class="label">Balneario Shopping</div>
+                <div class="value">${porShopping['Balneário Shopping'] || 0}</div>
+                <div class="label">Balneário Shopping</div>
             </div>
             <div class="kpi">
                 <div class="value">${porShopping['Neumarkt Shopping'] || 0}</div>
@@ -254,10 +254,10 @@ function renderKPIs(leads) {
             </div>
             <div class="kpi">
                 <div class="value">${contarPor(leads, 'Lojista')['Sim'] || 0}</div>
-                <div class="label">Ja sao lojistas</div>
+                <div class="label">Já são lojistas</div>
             </div>
             <div class="kpi">
-                <div class="value">${contarPor(leads, 'Tempo Investimento')['Ate 6 meses'] || 0}</div>
+                <div class="value">${contarPor(leads, 'Tempo Investimento')['Até 6 meses'] || 0}</div>
                 <div class="label">Investir em 6 meses</div>
             </div>
         </div>
@@ -272,7 +272,7 @@ function renderCharts(leads) {
                 <canvas id="chartShopping"></canvas>
             </div>
             <div class="chart-card">
-                <h3>Ja e lojista?</h3>
+                <h3>Já é lojista?</h3>
                 <canvas id="chartLojista"></canvas>
             </div>
             <div class="chart-card">
@@ -403,7 +403,7 @@ function montarGraficos(leads) {
     criarGraficoBarra('chartTipoLoja', contarPor(leads, 'Tipo Loja'), CORES.purple);
 
     // Tempo
-    const ordemTempo = ['Ate 6 meses', '6 a 12 meses', 'Mais de 1 ano', 'So pesquisando'];
+    const ordemTempo = ['Até 6 meses', '6 a 12 meses', 'Mais de 1 ano', 'Só pesquisando'];
     const tempoData = {};
     const tempoContagem = contarPor(leads, 'Tempo Investimento');
     ordemTempo.forEach(t => { if (tempoContagem[t]) tempoData[t] = tempoContagem[t]; });
@@ -411,7 +411,7 @@ function montarGraficos(leads) {
     criarGraficoBarra('chartTempo', tempoData, CORES.blue);
 
     // Faixa
-    const ordemFaixa = ['Ate R$50 mil', 'R$50k a R$150k', 'R$150k a R$300k', 'Acima de R$300k'];
+    const ordemFaixa = ['Até R$50 mil', 'R$50k a R$150k', 'R$150k a R$300k', 'Acima de R$300k'];
     const faixaData = {};
     const faixaContagem = contarPor(leads, 'Faixa Investimento');
     ordemFaixa.forEach(f => { if (faixaContagem[f]) faixaData[f] = faixaContagem[f]; });
