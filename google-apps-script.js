@@ -1,6 +1,9 @@
 /**
  * Google Apps Script - Landing Page Elas
  * Recebe leads (doPost) e serve dados para dashboard (doGet)
+ *
+ * Headers da planilha (linha 1):
+ * Data/Hora | Shopping | Evento | Nome | Telefone | Email
  */
 
 function doPost(e) {
@@ -13,11 +16,7 @@ function doPost(e) {
       data.evento || '',
       data.nome || '',
       data.telefone || '',
-      data.email || '',
-      data.lojista || '',
-      data.loja_tipo || '',
-      data.tempo_investimento || '',
-      data.faixa_investimento || ''
+      data.email || ''
     ]);
     return ContentService
       .createTextOutput(JSON.stringify({ status: 'ok' }))
